@@ -18,12 +18,12 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: localhost:5000/test/nginx:0.1.4
+          image: test/nginx:0.1.4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
         - name: php-fpm
-          image: localhost:5000/test/php-fpm:0.1.4
+          image: test/php-fpm:0.1.4
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9000

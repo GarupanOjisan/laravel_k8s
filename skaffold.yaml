@@ -1,0 +1,18 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+metadata:
+  name: laravel-k8s-skaffold
+build:
+  artifacts:
+    - image: test/nginx
+      context: ./docker/nginx
+    - image: test/php-fpm
+      context: ./docker/php-fpm
+  local:
+    push: false
+deploy:
+  kubectl:
+    manifests:
+      - k8s/dev/*.yaml
+tagPolicy:
+  envTemplate: {{.IMAGE_NAME}}
