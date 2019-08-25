@@ -1,0 +1,6 @@
+vendor
+bootstrap/cache
+storage/framework/*
+storage/logs/*
+
+.env
