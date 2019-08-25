@@ -8,11 +8,16 @@ build:
       context: ./docker/nginx
     - image: test/php-fpm
       context: ./docker/php-fpm
+      sync:
+        infer:
+          - 'app/*'
+          - 'app/**/*'
+          - 'app/**/**/*'
+          - 'app/**/**/**/*'
+          - 'app/**/**/**/**/*'
   local:
     push: false
 deploy:
   kubectl:
     manifests:
       - k8s/dev/*.yaml
-tagPolicy:
-  envTemplate: {{.IMAGE_NAME}}
